@@ -1,5 +1,4 @@
-import { BlocksRenderer, YoutubeLiteBlock, ImageBlock } from '@10up/headless-core/react';
-import { TwitterBlock, ImageComponent, LinkBlock } from '@10up/headless-next';
+import { BlocksRenderer } from '@10up/headless-core/react';
 
 import { css } from '@linaria/core';
 import PropTypes from 'prop-types';
@@ -11,12 +10,7 @@ export const Blocks = ({ html }) => {
 				position: relative;
 			`}
 		>
-			<BlocksRenderer html={html}>
-				<ImageBlock component={ImageComponent} />
-				<LinkBlock />
-				<TwitterBlock />
-				<YoutubeLiteBlock />
-			</BlocksRenderer>
+			<BlocksRenderer html={html} />
 		</div>
 	);
 };
