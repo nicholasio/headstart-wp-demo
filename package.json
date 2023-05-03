@@ -33,7 +33,6 @@
     "@next/bundle-analyzer": "^12.1.0",
     "eslint-plugin-import": "^2.26.0"
   },
-  "engineStrict": true,
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.0.0"
