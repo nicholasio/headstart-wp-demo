@@ -1,14 +1,36 @@
-import {
-	BlocksRenderer,
-	ColumnBlock,
-	ColumnsBlock,
-	DebugBlock,
-	ParagraphBlock,
-} from '@10up/headless-core/react';
+import { BlocksRenderer, ColumnBlock, ColumnsBlock, useBlock } from '@10up/headless-core/react';
 
 import { css } from '@linaria/core';
 import PropTypes from 'prop-types';
 
+const MyColumnsBlock = (props) => {
+	return (
+		<div
+			className={css`
+				outline: 1px blue solid;
+				display: flex;
+				min-height: 400px;
+			`}
+		>
+			{props.children}
+		</div>
+	);
+};
+
+const MyColumnBlock = (props) => {
+	const { name } = useBlock(props.domNode);
+
+	return (
+		<div
+			className={css`
+				flex: 1;
+				align-self: center;
+			`}
+		>
+			{name} {props.children}
+		</div>
+	);
+};
 export const Blocks = ({ html }) => {
 	return (
 		<div
@@ -17,9 +39,8 @@ export const Blocks = ({ html }) => {
 			`}
 		>
 			<BlocksRenderer html={html}>
-				<ColumnBlock component={DebugBlock} />
-				<ColumnsBlock component={DebugBlock} />
-				<ParagraphBlock component={DebugBlock} />
+				<ColumnsBlock component={MyColumnsBlock} />
+				<ColumnBlock component={MyColumnBlock} />
 			</BlocksRenderer>
 		</div>
 	);
