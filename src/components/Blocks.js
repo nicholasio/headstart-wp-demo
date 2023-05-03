@@ -1,4 +1,10 @@
-import { BlocksRenderer } from '@10up/headless-core/react';
+import {
+	BlocksRenderer,
+	ColumnBlock,
+	ColumnsBlock,
+	DebugBlock,
+	ParagraphBlock,
+} from '@10up/headless-core/react';
 
 import { css } from '@linaria/core';
 import PropTypes from 'prop-types';
@@ -10,7 +16,11 @@ export const Blocks = ({ html }) => {
 				position: relative;
 			`}
 		>
-			<BlocksRenderer html={html} />
+			<BlocksRenderer html={html}>
+				<ColumnBlock component={DebugBlock} />
+				<ColumnsBlock component={DebugBlock} />
+				<ParagraphBlock component={DebugBlock} />
+			</BlocksRenderer>
 		</div>
 	);
 };
